@@ -13,6 +13,12 @@ import com.services.PersonService;
  * @author jsme4
  */
 public class PersonController {
+    
+    PersonService personService;
+    public PersonController() {
+        this.personService = new PersonService();
+    }
+    
     public ArrayList<Person> index(){
         PersonService personService = new PersonService();
         
@@ -28,5 +34,9 @@ public class PersonController {
      public Person showByEmail(String email) {
         PersonService personService = new PersonService();
         return personService.getByEmail(email);
+    }
+     
+     public void store(Person person) {
+        this.personService.save(person);
     }
 }
